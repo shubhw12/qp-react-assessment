@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { todoProps } from '../../../app/Interfaces/InterFaces'
-import { Form, Button, ButtonGroup, Modal } from 'react-bootstrap'
+import { Button, ButtonGroup, Modal } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRotateLeft, faCircleInfo, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 const Completedtodo = (props: todoProps) => {
 
-  const [isEdit, setIsEdit] = useState<boolean>(true)
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

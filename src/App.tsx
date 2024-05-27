@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Form, Button, InputGroup, Modal, Tab, Tabs, FormControl } from 'react-bootstrap';
-import Todo from './features/counter/Todo/Pendingtodo';
+import { Container,  Form, Button,  Modal, Tab, Tabs  } from 'react-bootstrap';
 import { todoObject } from './app/Interfaces/InterFaces';
 import PendingTodo from './features/counter/Todo/Pendingtodo';
 import Completedtodo from './features/counter/Todo/Completedtodo';
@@ -11,7 +10,7 @@ import records from './records'
 
 function App() {
 
-  const [todos, setTodos] = useState<todoObject[]>([...records]);
+  const [todos, setTodos] = useState<todoObject[]>([]);
   const [todoText, setTodoText] = useState<string>('');
   const [todoDesc, setTodoDesc] = useState<string>('');
 
@@ -146,7 +145,7 @@ function App() {
             {todos.length > 0 && <p className="display-4">Lets do this </p>}
             <div className="d-flex flex-wrap jusify-space-between m-2">
               {pendingTodoslist.length > 0 && pendingTodoslist.map((todo: todoObject, index: number) => (
-                todo?.status == "pending" ?
+                todo?.status === "pending" ?
                   <PendingTodo todoTitle={todo.title}
                     todoDescription={todo.description}
                     status={todo.status}
@@ -167,7 +166,7 @@ function App() {
             <div className='d-flex justify-content-center'>
             <div className="d-flex flex-wrap jusify-space-evenly m-2">
               {completedTodoslist.length > 0 && completedTodoslist.map((todo: todoObject, index: number) => (
-                todo?.status == "completed" ?
+                todo?.status === "completed" ?
                   <Completedtodo todoTitle={todo.title}
                     status={todo.status}
                     todoDescription={todo.description}
